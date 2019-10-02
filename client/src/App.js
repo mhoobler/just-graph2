@@ -17,13 +17,13 @@ class App extends Component{
     this.handleInput = this.handleInput.bind(this);
   }
 
-  componentDidMount()
-  {
-    let x = axios.get('/_api-test');
-    console.log(x);
+  // componentDidMount()
+  // {
+  //   let x = axios.get('/_api-test');
+  //   console.log(x);
 
-    return x;
-  }
+  //   return x;
+  // }
 
   handleInput(e)
   {
