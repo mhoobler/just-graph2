@@ -66,6 +66,7 @@ class ChartComp extends Component {
                 }
             ]
         }
+        this.componentDidMount = this.componentDidMount.bind(this);
         
     }
 
@@ -145,7 +146,12 @@ class ChartComp extends Component {
 
     componentDidUpdate(prevProps)
     {
-      console.log(prevProps);
+      if(this.props.update !== prevProps.update)
+      {
+        this.setState({
+            update: this.props.update
+        })
+      }
     }
 
     render(){

@@ -11,7 +11,8 @@ class App extends Component{
 
     this.state = {
       graphInfo: null,
-      setting: "high"
+      setting: "high",
+      search: ''
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -34,13 +35,17 @@ class App extends Component{
     axios.get('/_api/alpha/' + input)
     .then(alpha => {
       console.log(alpha)
-      this.setState({
-        graphInfo: {
-            symbol: alpha.data["Meta Data"]["2. Symbol"],
-            keys: Object.keys(alpha.data["Time Series (Daily)"]).reverse(),
-            data: alpha.data["Time Series (Daily)"]
-        }
-    })
+      if(alpha.data)
+      {
+        this.setState({
+          search: input,
+          graphInfo: {
+              symbol: alpha.data["Meta Data"]["2. Symbol"],
+              keys: Object.keys(alpha.data["Time Series (Daily)"]).reverse(),
+              data: alpha.data["Time Series (Daily)"]
+          }
+        })
+      }
     });
 
   }
@@ -50,7 +55,7 @@ class App extends Component{
     return (
         <body>
           <div id="content">
-            {this.state.graphInfo ? <ChartComp graphInfo={this.state.graphInfo} setting={this.state.setting} /> : null}
+            {this.state.graphInfo ? <ChartComp graphInfo={this.state.graphInfo} key={this.state.graphInfo.symbol} setting={this.state.setting} /> : null}
             <form>
               <input id='input' type='text'/>
               <button onClick={this.handleInput}>Test</button>
