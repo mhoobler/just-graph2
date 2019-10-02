@@ -1,5 +1,5 @@
 {
-  "name": "just-graph",
+  "name": "just-graph2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,21 +8,19 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mhoobler/just-graph.git"
+    "url": "git+https://github.com/mhoobler/just-graph2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mhoobler/just-graph/issues"
+    "url": "https://github.com/mhoobler/just-graph2/issues"
   },
-  "homepage": "https://github.com/mhoobler/just-graph#readme",
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
